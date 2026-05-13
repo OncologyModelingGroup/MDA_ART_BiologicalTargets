@@ -27,8 +27,8 @@ The script utilize Empirical Cumulative Distribution Functions (eCDF) and Pareto
 
 | Class | Description |
 |-------| ------------|
-|IDR (Class 1) | Areas where $\Delta ADC$ is below the determined threshold (increased restriction). |
-|DMDR (Class 2) | Areas where $\Delta ADC$ is above the threshold (maintained/decreased restriction). |
+|IDR (Class 1) | Areas where $\Delta ADC$ is $\le$ the determined threshold (increased restriction). |
+|DMDR (Class 2) | Areas where $\Delta ADC$ is > the threshold (maintained/decreased restriction). |
  
 #### ROC Analysis
 To find the optimal balance between sensitivity and specificity, the analysis tests LTCP thresholds ranging from 20% to 40%. Observed Cutoff: Selected based on the highest Area Under the Curve (AUC). Model Cutoff: Selected using the Youden’s Index ($J$), where $J = Sensitivity + Specificity - 1$.
@@ -38,10 +38,10 @@ The scripts calculate the following metrics to validate the model against observ
 
 | Scenario | Tumor Regions | Timepoint |
 |-----|-------|-----|
-| Scenario 1 | Enhancing + Non-Enhancing Tumor Volume | End of Radiotherapy |
-| Scenario 2 | Enhancing + Non-Enhancing Tumor Volume | 1-month Follow-up visit |
-| Scenario 3 | Enhancing Tumor Volume | End of Radiotherapy |
-| Scenario 4 | Enhancing Tumor Volume | 1-month Follow-up visit |
+| Scenario 1 | Enhancing + Non-Enhancing Tumor Volume | End of radiotherapy |
+| Scenario 2 | Enhancing + Non-Enhancing Tumor Volume | 1-month follow-up visit |
+| Scenario 3 | Enhancing Tumor Volume | End of radiotherapy |
+| Scenario 4 | Enhancing Tumor Volume | 1-month follow-up visit |
 
 #### Spatial Distribution
 This analysis classifies IDR voxels based on their location within the tumor: IDR Edge (Periphery) vs. IDR Core. PC Ratio: A ratio $\ge 2$ is used as a criterion to identify tumors with a preference for peripheral IDR localization.
