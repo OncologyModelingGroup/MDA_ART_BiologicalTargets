@@ -10,7 +10,7 @@ Statistics and Machine Learning Toolbox (Required for ecdf, paretotails, and con
 | Filename | Description |
 |----------| ------------|
 |ADC_Data.mat | MATLAB file containing each subject's voxel-wise measurement of apparent diffusion coefficient within the tumor. |
-|SpatialDistribution_BestScenario.mat | MATLAB file containing each tumor voxel's class (IDR vs. DMDR) using the optimal cutoffs in the manuscript.
+|SpatialDistribution_BestScenario.mat | MATLAB file containing each tumor voxel's class (IDR vs. DMDR) using the optimal cutoff provided in the manuscript. IDR voxels are further subclassified as part of the periphery (class 1), or the core (class 2). All DMDR voxels were all categorized as class 0.
 
 ## Code Summary
 | Filename | Description |
