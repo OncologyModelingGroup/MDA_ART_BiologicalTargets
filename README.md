@@ -1,5 +1,5 @@
 # MDA Adaptive RT - Biological Targets
-This README provides an overview of the MATLAB scripts and data files used for the classification and spatial analysis of Apparent Diffusion Coefficient (ADC) data. These scripts are designed to identify tumor regions of Increased Diffusion Restriction (IDR) versus Decreased/Maintained Diffusion Restriction (DMDR).
+This README provides an overview of the MATLAB scripts and data files used for the classification and spatial analysis of Apparent Diffusion Coefficient (ADC) data. These scripts are designed to delineate candidate radiotherapy targets informed by changes in diffusion within the tumor. Voxels are classified as Increased Diffusion Restriction (IDR) or Decreased/Maintained Diffusion Restriction (DMDR) in this framework.
 
 ## Setup and Requirements
 Dependencies
@@ -17,7 +17,7 @@ Statistics and Machine Learning Toolbox (Required for ecdf, paretotails, and con
 |----------| ------------|
 | Script1_VoxelClassification_OptimalCutoffResults.m |Performs voxel-wise classification using pre-determined "optimal" cutoffs. Generates confusion matrices, eCDF plots, and performance metrics (Sensitivity, Specificity, DSC). |
 |Script2_VoxelClassification_AllCutoffROC.m | Iterates through multiple LTCP (Lower Tail Cumulative Probability) thresholds to perform ROC analysis and determine the best-performing cutoffs for the model. 
-|Script3_SpatialDistributionAnalysis_IDR.m | Analyzes the localization of IDR voxels, specifically comparing the "Periphery-to-Core" (PC) ratio between observed and predicted data. |
+|Script3_IDR_SpatialDistributionAnalysis_EnhBorder.m | Analyzes the localization of IDR voxels, specifically comparing the "Periphery-to-Core" (PC) ratio between observed and predicted data. |
 
 ## Methodology: Voxel-Wise Tumor Classification and Spatial Analysis
 This repository contains a suite of MATLAB scripts for processing ADC imaging data, determining optimal classification thresholds via ROC analysis, and analyzing the spatial distribution of predicted tumor patterns.
@@ -44,10 +44,9 @@ The scripts calculate the following metrics to validate the model against observ
 | Scenario 4 | Enhancing Tumor Volume | 1-month follow-up visit |
 
 #### Spatial Distribution
-This analysis classifies IDR voxels based on their location within the tumor: IDR Edge (Periphery) vs. IDR Core. PC Ratio: A ratio $\ge 2$ is used as a criterion to identify tumors with a preference for peripheral IDR localization.
+This analysis classifies IDR voxels based on their location within the tumor. Clinician delineated border between the enhancing and non-enhancing volume was used as the boundary to define tumor periphery (non-enhancing volume) versus tumor core (enhancing volume). IDR Periphery-to-Core Ratio was calculated across subjects and used to assess preferential localization.
 
-| Class Number  | Description |
-|---------------|-------------|
-| 0 | DMDR voxel |
-| 1 | IDR voxel located in the tumor periphery |
-| 2 | IDR voxel located in the tumor core |
+| Class Number  | Description | Clinician Delineated Tumor Volume |
+|---------------|-------------|------------------------------------|
+| 1 | IDR voxel located in the tumor periphery | Non-enhancing volume |
+| 2 | IDR voxel located in the tumor core | contrast enhancing volume |
