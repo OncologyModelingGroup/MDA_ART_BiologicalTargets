@@ -34,7 +34,7 @@ The script utilize Empirical Cumulative Distribution Functions (eCDF) and Pareto
 To find the optimal balance between sensitivity and specificity, the analysis tests LTCP thresholds ranging from 20% to 40%. Observed Cutoff: Selected based on the highest Area Under the Curve (AUC). Model Cutoff: Selected using the Youden’s Index ($J$), where $J = Sensitivity + Specificity - 1$.
 
 #### Performance Evaluation
-The scripts calculate the following metrics to validate the model against observed data: Sensitivity (TPR) and Specificity (TNR). Dice-Sorensen Coefficient (DSC): Measures spatial overlap/agreement between predicted and observed classes. Confusion Matrices: Generated for each patient case across four different scenarios.
+The scripts calculate the following metrics to compare the model against observed data: Sensitivity (TPR) and Specificity (TNR). Dice-Sorensen Coefficient (DSC): Measures spatial overlap/agreement between predicted and observed classes. Confusion Matrices: Generated for each patient case across four different scenarios.
 
 | Scenario | Tumor Regions | Timepoint |
 |-----|-------|-----|
